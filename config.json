@@ -1,0 +1,76 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "icon": "images/icon.png",
+        "iconSmall": "images/icon.png"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "Send SMS",
+            "description": "Sends an SMS using an external SMS connector."
+        }
+    },
+    "arguments": {
+        "execute": {
+            "inArguments": [],
+            "outArguments": [],
+            "url": "https://your_external_sms_service.com/send_sms",
+            "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+        "applicationExtensionKey": "your_sms_connector_extension_key"
+    },
+    "wizardSteps": [
+        {
+            "label": "Configure SMS",
+            "key": "step1"
+        }
+    ],
+    "userInterfaces": {
+        "configModal": {
+            "height": 200,
+            "width": 300,
+            "fullscreen": false
+        }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [],
+                "outArguments": []
+            }
+        }
+    },
+    "outcomes": [
+        {
+            "arguments": {
+                "branchResult": "Success"
+            },
+            "metaData": {
+                "label": "Success"
+            }
+        },
+        {
+            "arguments": {
+                "branchResult": "Error"
+            },
+            "metaData": {
+                "label": "Error"
+            }
+        }
+    ],
+    "configuration": {
+        "serviceCloud": {
+            "schema": {},
+            "arguments": {},
+            "outcomes": []
+        }
+    }
+}
